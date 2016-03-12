@@ -1,0 +1,93 @@
+/*
+Theme Name: Diadge
+Description: A theme for blog.
+Author: Andressa Bertolini & Victor Iysuka
+*/
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #efefef;
+}
+
+ul{
+    padding: 0;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container{
+    max-width: 1200px;
+}
+
+.glyphicon {
+    vertical-align: -2px;
+    margin-right: 2px;
+}
+
+.navbar{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.navbar a, .navbar button{
+    transition: all 0.5s ease;
+}
+
+.navbar a:hover, .navbar button:hover{
+    cursor: pointer;
+}
+
+.navbar button:hover{
+    color: #ddd;
+}
+
+.navbar-default{
+    border: none;
+}
+
+@media(max-width : 990px){
+    .navbar-form{
+        display: none;
+    }
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #ddd;
+}
+
+.nav-social-icon:visited, .nav-social-icon:clicked, .nav-social-icon:active{
+    color: #fff;
+}
+
+.navbar-default .navbar-toggle{
+    border: none;
+    color: #fff;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>.open>a{
+    color: #fff;
+    background-color: transparent;
+}

@@ -10,6 +10,9 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/icomoon.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" />
 

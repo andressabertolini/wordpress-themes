@@ -67,3 +67,28 @@
                 </div>
             </div>
         </nav>
+
+<!-- ******************************************************** -->
+<!-- HEADER -->
+
+        <div class="jumbotron text-center">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/corner-rg-tp.png" class="jumbotron-corner-right">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/corner-lf-tp.png" class="jumbotron-corner-left">
+
+
+            <?php if(has_header_image()){?>
+                <img src="<?php echo header_image();?>" class="jumbotron-image">
+            <?php } ?>
+
+            <div class="jumbotron-mask" style="background: <?php echo get_theme_mod('image_transparency','#00adf7'); ?>"></div>
+
+                
+                <?php if (has_custom_logo()){ ?>
+                    <a href="<?php echo home_url();?>"><?php echo the_custom_logo();?></a>
+                <?php } ?>
+                <h1 class="jumbotron-title">
+                    <a href="<?php echo home_url();?>"><?php bloginfo('name'); ?></a>
+                </h1>
+                <h2><?php bloginfo('description'); ?></h2>
+            
+        </div>

@@ -15,13 +15,51 @@
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/icomoon.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+        
 
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+        <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
+        <script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <style type="text/css">      
+
+            .post-icons a{
+                color: <?php echo get_theme_mod('icons_color','#00adf7'); ?>;
+            }   
+
+            .post-comment a{
+                color: <?php echo get_theme_mod('comment_color','#00adf7'); ?>;
+            }  
+
+            .post-author a{
+                color: <?php echo get_theme_mod('post_author_color','#005176'); ?>;
+            }  
+
+            .cat-item a{
+                background: <?php echo get_theme_mod('sidebar_cat_color','#00adf7'); ?>;
+            }
+
+            .widget h3{
+                color: <?php echo get_theme_mod('sidebar_title_color','#00adf7'); ?>;
+            }
+
+            .comment-icon{
+                color: <?php echo get_theme_mod('comment_color','#00adf7'); ?>;
+            }
+
+            /*Color Scheme*/
+            .comment-icon, .widget h3, .cat-item a, .post-author a, .post-comment a, .post-icons a{
+                color: <?php echo get_theme_mod('scheme_main','#00adf7'); ?>;
+            }       
+
+        </style>
         <?php wp_head(); ?>
 
-</head>
-<body>
+    </head>
+    <body>
 
 <!-- ******************************************************** -->
 <!-- MENU -->

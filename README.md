@@ -1,1 +1,1 @@
-My wordpress theme!
+## This is a repo for all my wordpress themes

@@ -10,8 +10,9 @@
                         <div class="posts">
                         <!-- ******************************************************** -->
                         <!-- POSTS -->
-                            <!-- <?php //$paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?> 
-                            <?php //query_posts("showposts=2&paged=$paged"); ?>  -->
+
+                            <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?>
+                            <?php query_posts("showposts=2&paged=$paged"); ?> 
 
                             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                             <div class="page-block">
@@ -50,8 +51,9 @@
                                     } 
                                 ?>
 
-                                <p class="post-text"><?php the_content( '', TRUE ); ?></p>
+                                <div class="post-text"><?php the_content( '', TRUE ); ?></div>
 
+                                <!-- Random Categories -->
                                 <ul class="random-cats">
                                 <?php
                                     
@@ -60,15 +62,27 @@
                                     $taxonomy = 'category';
                                     $terms = get_terms($taxonomy);
                                     shuffle ($terms);
-                                    
+
                                     if ($terms) {
                                         foreach($terms as $term) {
                                             $counter++;
-                                            if ($counter <= $max) {
-                                            echo '<li class="cat-item"><a href="' . get_category_link( $term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name.'</a></li> ';
+
+                                            if (get_theme_mod('show_uncategorized') == 0){
+                                                if($term->term_id !== 1){
+                                                    if ($counter <= $max) {
+                                                    echo '<li class="cat-item"><a href="' . get_category_link( $term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name.'</a></li> ';
+                                                    }                                                
+                                                } 
+                                            }else{
+
+                                                if ($counter <= $max) {
+                                                    echo '<li class="cat-item"><a href="' . get_category_link( $term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name.'</a></li> ';
+                                                }
                                             }
+
+                                        }
                                     }
-                                    }
+
                                 ?>
                                 </ul>
 
@@ -77,18 +91,24 @@
                                 </div>
 
                                 <!-- Edit Post -->
-                                <ins>
-                                    <?php edit_post_link(__( 'Edit Post <span class="glyphicon glyphicon-pencil"></span>', 'diadge' )); ?>
-                                </ins>
-
+                                <ins><?php edit_post_link(__( 'Edit Post <span class="glyphicon glyphicon-pencil"></span>', 'diadge' )); ?></ins>
 
                             </div>
 
-
-                            <?php comments_template(); ?>
-
-
                             <?php endwhile?>
+
+                            <?php
+                                $count_posts = wp_count_posts();
+                                $published_posts = $count_posts->publish;
+
+                                if($published_posts >= 3){
+                                ?>
+                                    <p class="post-pages"><?php wordpress_pagination(); ?></p>
+                                <?php    
+                                }
+                            ?>
+
+
 
                             <?php else: ?>
                                 <h1 class="post-title" style="color: <?php echo get_theme_mod('title_color','#00b5fa'); ?>">No posts found</a></h1>

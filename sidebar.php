@@ -1,6 +1,6 @@
 <!-- ******************************************************** -->
 <!-- ABOUT -->
-<div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-4">
                         <div class="about">
                             <div class="sidebar-author sidebar-session">
                                 <div class="about-image-corners">
